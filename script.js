@@ -38,14 +38,31 @@ for (var i = 0; i < timeArr.length; i++) {
 }
 
 //when user clicks button pull the text in that row
-$(".row").on("click", function (event) {
-    if(event.target.matches("button")){
-        console.log("button!")
-        var input = $("textarea").val();
+$(".saveBtn").on("click", function (event) {
+        console.log("button!");
+
+        console.log(event);
+        
+        //get the parent element of the event.target.element
+        var parent = $(event.target).parent();
+        console.log(parent);
+
+        //the sibling text area element of the button
+        var textarea = $(event.target.parentElement).find("textarea");
+        console.log(textarea);
+
+        //grab the value in var textarea
+        var input = textarea.val();
         console.log(input);
-        var time = $(".hour").text();
-        console.log(time);
-    }       
+
+        //get the value in the hour element
+        var timeEl = $(event.target.parentElement).find('.hour');
+        console.log(timeEl)
+
+        var time = timeEl.text()
+        console.log(time)
+
+        //store input into local storage
 });
 
 
