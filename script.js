@@ -40,29 +40,29 @@ for (var i = 0; i < timeArr.length; i++) {
 //when user clicks button pull the text in that row
 $(".saveBtn").on("click", function (event) {
         console.log("button!");
-
         console.log(event);
         
-        //get the parent element of the event.target.element
-        var parent = $(event.target).parent();
-        console.log(parent);
+        //get the parent element of the event target
+        var parent = $(this).parent()
+        console.log("parent",parent);
 
-        //the sibling text area element of the button
-        var textarea = $(event.target.parentElement).find("textarea");
-        console.log(textarea);
+        //find the textarea element in the parent eleent
+        var textarea = parent.find("textarea")
+        console.log("textarea",textarea);
 
         //grab the value in var textarea
         var input = textarea.val();
         console.log(input);
 
         //get the value in the hour element
-        var timeEl = $(event.target.parentElement).find('.hour');
+        var timeEl = parent.find('.hour');
         console.log(timeEl)
 
         var time = timeEl.text()
         console.log(time)
 
         //store input into local storage
+        
 });
 
 
