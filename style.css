@@ -55,12 +55,12 @@ body {
   }
   
   .present {
-    background-image: linear-gradient(to right,grey, rgb(13, 146, 13));
+    background-image: linear-gradient(to right,grey, rgb(132, 236, 132));
     color: black;
   }
   
   .future {
-    background-image: linear-gradient(to right,salmon,rgba(32, 32, 219, 0.705));
+    background-image: linear-gradient(to right,salmon,rgba(82, 82, 230, 0.705));
     color: black;
   }
   
