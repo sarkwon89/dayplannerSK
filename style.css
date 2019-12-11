@@ -11,7 +11,7 @@ body {
     color: #000000;
     border-left: 1px solid black;
     padding: 10px;
-    width: 70%;
+    width: 75%;
   }
   
   .jumbotron {
@@ -29,6 +29,7 @@ body {
   .time-block{
     text-align: center;
     border-radius: 15px;
+    width: 15%;
   }
   
   .row {
@@ -49,7 +50,7 @@ body {
   }
   
   .present {
-    background-color: #ff6961;
+    background-image: linear-gradient(to right,salmon,blue);
     color: white;
   }
   
@@ -71,3 +72,6 @@ body {
     transition: all .3s ease-in-out;
   }
   
+  .container {
+    margin-bottom: 20%;
+  }

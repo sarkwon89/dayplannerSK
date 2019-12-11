@@ -1,9 +1,26 @@
 // global variables
 
+//time variable in timeblock element
+var time;
+console.log("time" + time)
 
+//my array of all the timeblocks
+var timeArr = ["9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM"]
+console.log("array" + timeArr);
 
+//create a counter where to add from
+var startTime = 9;
 
-var timeArr = ["9:00am", "10:00am", "11:00am", "12:00pm", "1:00pm", "2:00pm", "3:00pm", "4:00pm", "5:00pm"]
+//add format HH in the data set and convert it into an integer
+var HH = parseInt(moment().format("HH")) 
+
+//Near the top of the calendar, the application should display the current day. 
+//my currentDay value in hours and AM/PM
+var currentDay = moment().format("hA");
+console.log("current" + currentDay)
+
+//use moment method to place current time into the "currentDay" element
+$("#currentDay").text(moment().calendar());
 
 //create a for loop that will generate the rows, text area and buttons
 for (var i = 0; i < timeArr.length; i++) {
@@ -32,57 +49,63 @@ for (var i = 0; i < timeArr.length; i++) {
     hour.attr("class", "hour");
     hour.text(timeArr[i]);
     timeblock.attr("class", "time-block");
-    // description.attr("class", "description");
 
-    row.attr("data-test", timeArr[i])
+    //apply data set to all the rows with startTime
+    textarea.attr("data-hour", startTime);
+    //The next time the code loops it adds startTime with 1
+    startTime++
+
 }
 
 //when user clicks button pull the text in that row
 $(".saveBtn").on("click", function (event) {
-        console.log("button!");
-        console.log(event);
-        
-        //get the parent element of the event target
-        var parent = $(this).parent()
-        console.log("parent",parent);
+    console.log("button!");
+    console.log(event);
 
-        //find the textarea element in the parent eleent
-        var textarea = parent.find("textarea")
-        console.log("textarea",textarea);
+    //get the parent element of the event target
+    var parent = $(this).parent();
+    console.log("parent", parent);
 
-        //grab the value in var textarea
-        var input = textarea.val();
-        console.log(input);
+    //find the textarea element in the parent eleent
+    var textarea = parent.find("textarea");
+    console.log("textarea", textarea);
 
-        //get the value in the hour element
-        var timeEl = parent.find('.hour');
-        console.log(timeEl)
+    //grab the value in var textarea
+    var input = textarea.val();
+    console.log(input);
 
-        var time = timeEl.text()
-        console.log(time)
+    //get the value in the hour element
+    var timeEl = parent.find(".hour");
+    // console.log("timeEl" + )
 
-        //store input into local storage
-        
+    //grab text from the hour element
+    time = timeEl.text();
+    console.log("time" + time);
+
+    //store input and time value into local storage
+    localStorage.setItem(time, input)
+
 });
-
-
-
-
-
-//when user click save button pull textarea and time data and store in local storage
-
-//Near the top of the calendar, the application should display the current day. 
-console.log(moment().format())
-
-$("#currentDay").text(moment().calendar());
 
 //Additionally, each hour should be color coded to reflect whether the time slot is in the past, the present, or the future. This will change depending on the time of day.
 //if current time = one of the strings in timeArr then set that specific timeblock color to "the present"
 
+$.each($("textarea"),function(){
+    console.log($(this).data("hour"));
+    console.log("foreach " + HH);
+    if(HH===$(this).data("hour")){
+        $(this).attr("class","present")
+    } 
+    
+    if(HH>$(this).data("hour")){
+        $(this).attr("class","past")
+    }
 
+    if(HH<$(this).data("hour")){
+        $(this).attr("class","future")
+    }
+    })
 
 
 //when the page loads pull available text in local storage.  If nothing exists leave text area blank.
 
-
-//make it a full width
