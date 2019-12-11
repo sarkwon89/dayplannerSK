@@ -35,7 +35,7 @@ body {
   .row {
     white-space: pre-wrap;
     height: 80px;
-    border-top: 1px solid white;;
+    border-top: 1px solid white;
   }
   
   .hour {
@@ -74,4 +74,30 @@ body {
   
   .container {
     margin-bottom: 20%;
+  }
+
+  @media only screen and (max-width: 1200px) {
+    textarea{
+      width: 74%;
+    }
+  }
+
+  @media only screen and (max-width: 1005px) {
+    textarea{
+      width: 70%;
+    }
+  }
+
+  @media only screen and (max-width: 780px) {
+    textarea{
+      width: 60%;
+    }
+
+    .saveBtn{
+      width: 20%;
+    }
+
+    .time-block{
+      margin-left: 10px;
+    }
   }

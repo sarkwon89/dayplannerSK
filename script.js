@@ -59,7 +59,6 @@ for (var i = 0; i < timeArr.length; i++) {
     if(localStorage.getItem(timeArr[i]) !== null) {
         textarea.text(localStorage.getItem(timeArr[i]))
     }
-
 }
 
 //when user clicks button pull the text in that row
