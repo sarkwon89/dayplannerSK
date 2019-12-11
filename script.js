@@ -12,7 +12,7 @@ console.log("array" + timeArr);
 var startTime = 9;
 
 //add format HH in the data set and convert it into an integer
-var HH = parseInt(moment().format("HH")) 
+var HH = parseInt(moment().format("HH"))
 
 //Near the top of the calendar, the application should display the current day. 
 //my currentDay value in hours and AM/PM
@@ -55,6 +55,11 @@ for (var i = 0; i < timeArr.length; i++) {
     //The next time the code loops it adds startTime with 1
     startTime++
 
+    //when the page loads the if statment checks what the value of the key is. If the value does not equal to null then put the 
+    if(localStorage.getItem(timeArr[i]) !== null) {
+        textarea.text(localStorage.getItem(timeArr[i]))
+    }
+
 }
 
 //when user clicks button pull the text in that row
@@ -71,7 +76,7 @@ $(".saveBtn").on("click", function (event) {
     console.log("textarea", textarea);
 
     //grab the value in var textarea
-    var input = textarea.val();
+    input = textarea.val();
     console.log(input);
 
     //get the value in the hour element
@@ -85,27 +90,27 @@ $(".saveBtn").on("click", function (event) {
     //store input and time value into local storage
     localStorage.setItem(time, input)
 
+
+
 });
+
+var input;
 
 //Additionally, each hour should be color coded to reflect whether the time slot is in the past, the present, or the future. This will change depending on the time of day.
 //if current time = one of the strings in timeArr then set that specific timeblock color to "the present"
 
-$.each($("textarea"),function(){
+$.each($("textarea"), function () {
     console.log($(this).data("hour"));
     console.log("foreach " + HH);
-    if(HH===$(this).data("hour")){
-        $(this).attr("class","present")
-    } 
-    
-    if(HH>$(this).data("hour")){
-        $(this).attr("class","past")
+    if (HH === $(this).data("hour")) {
+        $(this).attr("class", "present")
     }
 
-    if(HH<$(this).data("hour")){
-        $(this).attr("class","future")
+    if (HH > $(this).data("hour")) {
+        $(this).attr("class", "past")
     }
-    })
 
-
-//when the page loads pull available text in local storage.  If nothing exists leave text area blank.
-
+    if (HH < $(this).data("hour")) {
+        $(this).attr("class", "future")
+    }
+})
