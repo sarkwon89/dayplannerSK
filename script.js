@@ -30,20 +30,19 @@ for (var i = 0; i < timeArr.length; i++) {
     var timeblock = $("<div>");
     var saveBtn = $("<button>");
     var hour = $("<div>");
-    var icon = $("<i>")
-    // var description = $("<div>");
+    // var icon = $("<i>")
 
     //append element from parent element
     $(".container").append(row);
     row.append(timeblock);
     timeblock.append(hour)
     row.append(textarea);
-    // description.append(textarea);
     row.append(saveBtn);
-    saveBtn.append(icon);
+    // 
+    // saveBtn.append(icon);
 
     //add text to button
-    saveBtn.text("Save Button");
+    // saveBtn.text("Save Button");
 
     //set class attributes
     saveBtn.attr("class", "saveBtn");
@@ -51,7 +50,8 @@ for (var i = 0; i < timeArr.length; i++) {
     hour.attr("class", "hour");
     hour.text(timeArr[i]);
     timeblock.attr("class", "time-block");
-    icon.attr("class", "far fa-save")
+
+    // icon.attr("class", "far fa-save")
 
     //apply data set to all the rows with startTime
     textarea.attr("data-hour", startTime);
@@ -63,6 +63,8 @@ for (var i = 0; i < timeArr.length; i++) {
         textarea.text(localStorage.getItem(timeArr[i]))
     }
 }
+
+$(".saveBtn").append(('<i class="far fa-save"></i>'))
 
 //when user clicks button pull the text in that row
 $(".saveBtn").on("click", function (event) {

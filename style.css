@@ -50,7 +50,7 @@ body {
   }
   
   .past {
-    background-image: linear-gradient(to right, rgb(212, 100, 212), rgb(221, 221, 118));
+    background-image: linear-gradient(to right, rgb(231, 135, 110), rgb(221, 221, 118));
     color: black;
   }
   
@@ -70,6 +70,7 @@ body {
     border-bottom-right-radius: 15px;
     background-color: #06AED5;
     color: white;
+    width: 10%;
   }
   
   .saveBtn i:hover {
