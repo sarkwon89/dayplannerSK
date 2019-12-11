@@ -30,6 +30,7 @@ for (var i = 0; i < timeArr.length; i++) {
     var timeblock = $("<div>");
     var saveBtn = $("<button>");
     var hour = $("<div>");
+    var icon = $("<i>")
     // var description = $("<div>");
 
     //append element from parent element
@@ -39,6 +40,7 @@ for (var i = 0; i < timeArr.length; i++) {
     row.append(textarea);
     // description.append(textarea);
     row.append(saveBtn);
+    saveBtn.append(icon);
 
     //add text to button
     saveBtn.text("Save Button");
@@ -49,6 +51,7 @@ for (var i = 0; i < timeArr.length; i++) {
     hour.attr("class", "hour");
     hour.text(timeArr[i]);
     timeblock.attr("class", "time-block");
+    icon.attr("class", "far fa-save")
 
     //apply data set to all the rows with startTime
     textarea.attr("data-hour", startTime);
