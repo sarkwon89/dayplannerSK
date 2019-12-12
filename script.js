@@ -64,7 +64,7 @@ for (var i = 0; i < timeArr.length; i++) {
     }
 }
 
-$(".saveBtn").append(('<i class="far fa-save"></i>'))
+$(".saveBtn").append(('<i class="far fa-save fa-2x"></i>'))
 
 //when user clicks button pull the text in that row
 $(".saveBtn").on("click", function (event) {
