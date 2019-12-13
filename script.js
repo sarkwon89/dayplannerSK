@@ -20,7 +20,7 @@ var currentDay = moment().format("hA");
 console.log("current" + currentDay)
 
 //use moment method to place current time into the "currentDay" element
-$("#currentDay").text(moment().calendar());
+$("#currentDay").text(moment().format("dddd h:mm A"));
 
 //create a for loop that will generate the rows, text area and buttons
 for (var i = 0; i < timeArr.length; i++) {
